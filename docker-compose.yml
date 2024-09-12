@@ -1,0 +1,13 @@
+services:
+
+  test-apache:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        IONCUBE_ARCHITECTURE: aarch64
+    working_dir: /var/www/html
+    volumes:
+      - ./src/test:/var/www/html/docroot
+
+

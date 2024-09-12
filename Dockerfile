@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 # x86-64
 # aarch64
-ARG IONCUBE_ARCHITECTURE=aarch64
+ARG IONCUBE_ARCHITECTURE=x86-64
 
 # No tty
 ENV DEBIAN_FRONTEND=noninteractive
@@ -76,10 +76,6 @@ COPY ./config/apache/000-default.conf /etc/apache2/sites-available/000-default.c
 COPY config/php/fpm/php.ini /etc/php/7.4/fpm/php.ini
 COPY config/php/fpm/pool.d/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 COPY config/php/fpm/xdebug.ini /etc/php/7.4/mods-available/xdebug.ini
-
-#phpinfo
-RUN mkdir /var/www/html/docroot
-COPY ./src/test/ /var/www/html/docroot/
 
 # Startup script to change uid/gid (if environment variable passed) and start supervisord in foreground
 COPY ./scripts/start.sh /start.sh
