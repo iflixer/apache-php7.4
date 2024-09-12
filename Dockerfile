@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 # x86-64
 # aarch64
-ARG IONCUDE_ARCHITECTURE=aarch64
+ARG IONCUBE_ARCHITECTURE=aarch64
 
 # No tty
 ENV DEBIAN_FRONTEND=noninteractive
@@ -57,7 +57,7 @@ RUN apt-get update \
 
 RUN cd /tmp \
     && ls /usr/lib/php \
-    && curl -o ioncube.tar.gz https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_${IONCUDE_ARCHITECTURE}.tar.gz \
+    && curl -o ioncube.tar.gz https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_${IONCUBE_ARCHITECTURE}.tar.gz \
     && tar -xvvzf ioncube.tar.gz \
     && mv ioncube/ioncube_loader_lin_7.4.so /usr/lib/php/20190902/ \
     && rm -Rf ioncube.tar.gz ioncube \
