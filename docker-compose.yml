@@ -6,6 +6,6 @@ services:
       dockerfile: Dockerfile-arm
     working_dir: /var/www/html
     volumes:
-      - ./src/test:/var/www/html/docroot
+      - ./src/test:/var/www/html
 
 
